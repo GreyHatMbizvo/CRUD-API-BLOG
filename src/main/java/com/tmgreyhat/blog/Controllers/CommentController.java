@@ -46,7 +46,6 @@ public class CommentController {
     @ResponseStatus(HttpStatus.OK)
     void delete(@PathVariable(name = "id") long id){
 
-
         repository.deleteById(id);
     }
 

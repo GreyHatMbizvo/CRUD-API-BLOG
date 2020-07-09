@@ -37,6 +37,13 @@ public class PostController {
         return  repository.save(post);
     }
 
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    void deleteOne(@PathVariable(name = "id") Long id){
+
+        repository.deleteById(id);
+    }
+
 
 
 

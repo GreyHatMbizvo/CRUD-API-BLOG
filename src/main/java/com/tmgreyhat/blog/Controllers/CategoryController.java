@@ -38,5 +38,13 @@ public class CategoryController {
         return  repository.save(category);
     }
 
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    void deleteOneById(@PathVariable(name = "id") long id){
+
+        repository.deleteById(id);
+
+    }
+
 
 }

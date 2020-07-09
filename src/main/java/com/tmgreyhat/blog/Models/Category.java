@@ -2,7 +2,6 @@ package com.tmgreyhat.blog.Models;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
 import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenerationTime;
 

@@ -3,7 +3,6 @@ package com.tmgreyhat.blog.Models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
-import lombok.Generated;
 import org.hibernate.annotations.GenerationTime;
 
 import javax.persistence.*;

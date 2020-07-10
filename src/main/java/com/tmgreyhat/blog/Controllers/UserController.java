@@ -1,6 +1,8 @@
 package com.tmgreyhat.blog.Controllers;
 
 
+import com.tmgreyhat.blog.Exceptions.Precogs;
+import com.tmgreyhat.blog.Exceptions.ResourceNotFoundException;
 import com.tmgreyhat.blog.Models.User;
 import com.tmgreyhat.blog.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +28,11 @@ public class UserController {
 
     @GetMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    private Optional<User> findOne(@PathVariable("id") Long id){
+    private User findOne(@PathVariable("id") Long id){
 
-        return  repository.findById(id);
+
+        return  repository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException(id));
 
     }
     @PostMapping
@@ -58,6 +62,10 @@ public class UserController {
                     return repository.save(user);
                 });
 
+
+       // Precogs.checkFound(repository.findById(id));
+
+        //return  repository.save(user);
 
     }
 

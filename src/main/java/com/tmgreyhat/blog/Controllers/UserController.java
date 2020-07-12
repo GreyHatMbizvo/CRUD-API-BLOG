@@ -56,16 +56,11 @@ public class UserController {
                     user1.setLast_name(user.getLast_name());
                     user1.setPassword(user.getPassword());
                     return  repository.save(user);
-                }).orElseGet(()->{
-
-                    user.setId(id);
-                    return repository.save(user);
-                });
+                })
+                .orElseThrow(()->new ResourceNotFoundException(id));
 
 
-       // Precogs.checkFound(repository.findById(id));
 
-        //return  repository.save(user);
 
     }
 
@@ -73,7 +68,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     private void deleteONe(@PathVariable(name = "id") Long id){
 
-          repository.deleteById(id);
+          repository.findById(id);
 
 
     }
